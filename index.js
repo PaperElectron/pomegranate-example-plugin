@@ -25,7 +25,7 @@ module.exports = {
      *  to help respect your users wishes.
      */
     var self = this;
-    this.Logger.log(self);
+    //this.Logger.log(self);
 
     /*
      * We need to call our loaded function with an object when we are all done doing what we need it to do.
