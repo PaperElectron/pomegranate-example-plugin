@@ -1,0 +1,19 @@
+{
+  "name": "pomegranate-example-plugin",
+  "version": "0.0.0",
+  "description": "Example plugin for the Pomegranate Application framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Pomegranate",
+    "Magnum DI"
+  ],
+  "author": "Jim <monstertke@paperelectron.com> (http://paperelectron.com/)",
+  "license": "MIT",
+  "pomegranate": {
+    "type": "platform",
+    "inject": "example"
+  }
+}
