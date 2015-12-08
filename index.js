@@ -11,7 +11,7 @@
  */
 
 exports.metadata = {
-  "type": "platform",
+  "layer": "platform",
   "inject": "example"
 }
 
