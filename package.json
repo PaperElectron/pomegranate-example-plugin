@@ -8,15 +8,9 @@
   },
   "keywords": [
     "Pomegranate",
-    "Magnum DI"
+    "Magnum DI",
+    "Plugin"
   ],
   "author": "Jim <monstertke@paperelectron.com> (http://paperelectron.com/)",
-  "license": "MIT",
-  "pomegranate": {
-    "type": "platform",
-    "inject": "example"
-  },
-  "dependencies": {
-    "request": "^2.67.0"
-  }
+  "license": "MIT"
 }

@@ -10,7 +10,12 @@
  * @module pomegranate-example-plugin
  */
 
-module.exports = {
+exports.metadata = {
+  "type": "platform",
+  "inject": "example"
+}
+
+exports.plugin = {
 
   /**
    * The main hook for your plugin, whatever is passed to the callback will be loaded into the injector.
