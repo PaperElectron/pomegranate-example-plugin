@@ -10,9 +10,15 @@
  * @module pomegranate-example-plugin
  */
 
+exports.defaults = {
+  workDir: './example'
+};
+
 exports.metadata = {
-  "layer": "platform",
-  "inject": "example"
+  name: 'Example',
+  layer: 'core',
+  inject: 'example',
+  type: 'service'
 }
 
 exports.plugin = {
