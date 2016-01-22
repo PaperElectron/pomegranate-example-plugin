@@ -4,7 +4,8 @@
   "description": "Example plugin for the Pomegranate Application framework.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "readme": "jsdoc2md -t docs/readme.hbs --member-index-format list  \"index.js\" \"plugins/*.js\" > Readme.md"
   },
   "keywords": [
     "Pomegranate",
@@ -12,5 +13,8 @@
     "Plugin"
   ],
   "author": "Jim <monstertke@paperelectron.com> (http://paperelectron.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jsdoc-to-markdown": "^1.3.3"
+  }
 }

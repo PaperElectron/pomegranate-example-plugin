@@ -6,69 +6,60 @@
  */
 
 /**
- * Provides Controllers for the Pomegranate framework.
+ * Exports plugins for the Pomegranate framework.
+ *
+ * Pomegranate plugin modules can export a single plugin, or an array of plugins.
+ * The syntax for the actual plugins are exactly the same in both cases,
+ * except in the case of multiple plugins, export an array of valid plugins from your main module.
+ *
  * @module pomegranate-example-plugin
+ * @type {(Plugin|Plugin[])}
+ *
+ * @see {@link module:Plugin.options} for more details.
+ * @see {@link module:Plugin.metadata} for more details.
+ * @see {@link module:Plugin.plugin} for more details.
+ *
+ * @example
+ *
+ * Multiple
+ *
+ * ```javacript
+ * // file index.js
+ *
+ * module.exports = [
+ *  require('./plugins/ServicePlugin'),
+ *  require('./plugins/DynamicPlugin')
+ * ]
+ *
+ * ```
+ *
+ * Single
+ *
+ * ```javascript
+ * //file index.js
+ *
+ * exports.options = {//...}
+ * exports.metadata = {//...}
+ * exports.plugin = {//...}
+ *
+ * ```
+ *
+ * Or
+ *
+ * ```javascript
+ * //file index.js
+ *
+ * module.exports = {
+ *  options: {//...},
+ *  metadata: {//...},
+ *  plugin: {//...}
+ * }
+ *
+ * ```
+ *
  */
 
-exports.defaults = {
-  workDir: './example'
-};
-
-exports.metadata = {
-  name: 'Example',
-  layer: 'core',
-  inject: 'example',
-  type: 'service'
-}
-
-exports.plugin = {
-
-  /**
-   * The main hook for your plugin, whatever is passed to the callback will be loaded into the injector.
-   * @param {Function} inject The Magnum DI injector
-   * @param {Function} loaded Callback function to return your plugins main object to the injector.
-   */
-  load: function(inject, loaded) {
-    /*
-     * "this" has a few interesting properties you can use.
-     *  this.options contains the options (if any) for this plugin.
-     *  this.Logger Is the global Logger in use by the app. Best to use this for any output
-     *  to help respect your users wishes.
-     */
-    var self = this;
-    //this.Logger.log(self);
-
-    /*
-     * We need to call our loaded function with an object when we are all done doing what we need it to do.
-     */
-    var myPluginObject = {
-      name: 'Example',
-      sayName: function(){
-        self.Logger.log(myPluginObject.name)
-      }
-    };
-    /*
-     * Async is ok obviously, though there is a 2000ms timeout by default on all of the hooks
-     * exposed.
-     */
-    setTimeout(function(){
-      self.Logger.log('Output here should only include critical info.')
-      loaded(null, myPluginObject)
-    }, 1000)
-  },
-  /**
-   * Startup hook, called when the application is done loading, any startup tasks for you plugin go here.
-   * @param {Function} done
-   */
-  start: function(done) {
-    done(null)
-  },
-
-  /**
-   * Stop hook, called before the application is shut down. Cleanup tasks for your plugin go here.
-   * @param {Function} done
-   */
-  stop: function(done) {
-    done(null)
-  }
-};
+module.exports = [
+  require('./plugins/ServicePlugin'),
+  require('./plugins/DynamicPlugin')
+];
